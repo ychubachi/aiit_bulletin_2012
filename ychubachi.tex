@@ -1,177 +1,102 @@
-\documentclass[a4j,10pt,twoside]{jarticle}
 %% 産業技術大学院大学紀要LaTeXスタイルシート
 
+%% jsarticleスタイルとmulticolを組み合わせて組版します
+%% jsclasses -> http://www.misojiro.t.u-tokyo.ac.jp/suribt/jsclasses.pdf
+\input{aiit.tex}
+
 %% ■ 図表のキャプションについて
-%% multicolを利用しているため\captionが使えません．
-%% 代わりに，\figcaption，\tblcaption を用いて
-%% 図と表の caption をつけて下さい．
+%% multicolでは\captionが使えないため，\figcaption，\tblcaption を用いてください
 
 %% 英語でキャプションを記載する場合は下記2行のコメントを外してください
- \renewcommand{\figurename}{Fig.}
- \renewcommand{\tablename}{Table.}
+% \renewcommand{\figurename}{Fig.}
+% \renewcommand{\tablename}{Table.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% パッケージ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
-% \usepackage{latexsym}
 \usepackage{amsmath}  % 数式用
 \usepackage{amsthm}
-\usepackage{multicol}
-\usepackage{newcent}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 図表番号の定義
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\makeatletter% @記号を通常文字として扱う
-\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
-\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
-\long\def\@makecaption#1#2{% キャプションの書式を定義します
-  \small%% add this line
-  \vskip\abovecaptionskip
-  \sbox\@tempboxa{#1: #2}% 例）「図1: キャプション」（コロンを補っています）
-  \ifdim \wd\@tempboxa >\hsize
-    #1: #2\par
-  \else
-    \global \@minipagefalse
-    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-  \fi
-  \vskip\belowcaptionskip}
-\makeatother%  @記号を特殊文字に戻す
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% セクションの定義
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\makeatletter% @記号を通常文字として扱う
-% セクションの項目番号の書式を設定します
-\renewcommand{\thesection}{\arabic{section}.}
-\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
-\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
-% セクションの書式を設定します
-\renewcommand{\section}{\@startsection{section}{1}{\z@}%
-   {1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
-   {.3\Cvs \@plus.3\Cvs}%
-   {\reset@font\normalsize\bfseries}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-   {1\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
-   {.01\Cvs \@plus.01\Cvs}%
-   {\reset@font\small\bfseries}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-   {1\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
-   {.01\Cvs \@plus.01\Cvs}%
-   {\reset@font\small\bfseries}}
-\makeatother% @記号を特殊文字に戻す
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ページのサイズ
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setlength{\oddsidemargin}{-1.4mm}
-\setlength{\evensidemargin}{-5.4mm}
-\setlength{\textwidth}{16.6cm}
-\setlength{\topmargin}{-7.4mm}
-\setlength{\headsep}{4.5mm}
-\setlength{\textheight}{24.5cm}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 明朝体イタリックフォントに関する警告の抑制
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareFontShape{JY1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*min
-    <10.95><12><14.4><17.28><20.74><24.88> min10 <-> min10}{}
-\DeclareFontShape{JT1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*tmin
-    <10.95><12><14.4><17.28><20.74><24.88> tmin10 <-> tmin10}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 参考文献
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\refname}{{\normalsize \bf 参考文献}}
+%\usepackage{newcent} % New Century Schoolbookフォント 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 文書
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}{\fnsymbol{footnote}}
+\pagestyle{empty}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 標題（1段組み）
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-0.78cm}
-
-\begin{center}
-\vspace{0.5cm}
-
-{\LARGE \bf 
-% 論文タイトル
-あああ産技大紀要フォーマットについて
-}
-
-\vspace{.6cm}
-
-{\large 
-% 論文著者名
-中 鉢　欣 秀$^{*}$
-}
-
-\vspace{.6cm}
-
-{\Large 
-% 論文英語タイトル
-Co-creative Software Development
-}\\
-
-\vspace{.4cm}
-
-{\large 
-% 論文英語著者名
-Yoshihide Chubachi$^{*}$
-}
-
-\vspace{.4cm}
-{\large Abstract}
-\end{center}
-
-\vspace{-2ex}
-\noindent
-{\normalsize
-% アブストラクト
-Abstract in English. (approx. 100 Words) 
-\vspace{.3cm}
-
-\noindent
-Keywords: 
-% キーワード
-Keywords in English. (approx. 5 Keywords)
-}
-
-\vspace{.5cm}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 本文（2段組み）
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{multicols}{2}
+\title{産技大紀要フォーマットについて}
+\author{中 鉢 欣 秀$^{*}$}
+\etitle{Co-creative Software Development}
+\eauthor{Yoshihide Chubachi$^{*}$}
+\eabstract{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque
+purus eget elit iaculis laoreet. Donec libero ligula, ultrices accumsan tempor
+eget, faucibus sit amet ante. Curabitur ac neque sapien, ut cursus erat.}
+\keywords{Keywords in English. (approx. 5 Keywords)}
+\maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 送付日・所属
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\small
-\setlength{\skip\footins}{1.7cm}
-\setlength{\baselineskip}{14.75pt}
-\footnotetext{\hspace{-4.5ex}
-% 送付日
-Received on September 25, 2010.
-}
-\footnotetext{\hspace{-4.5ex}
-% 著者所属 1
-$^{*}$ 産業技術研究科, School of Industrial Technology, AIIT
-}
-\footnotetext{\vspace{-8mm}} % 消すな
+\footnotetext{\hspace{-2em}% 送付日
+  Received on September 25, 2010.}
+\footnotetext{\hspace{-2em}% 著者所属 1
+ $^{*}$ 産業技術研究科, School of Industrial Technology, AIIT}
 
-%\pagestyle{empty}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 本文（2段組み）
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{multicols}{2}
+\section{Section 1}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque
+purus eget elit iaculis laoreet. Donec libero ligula, ultrices accumsan tempor
+eget, faucibus sit amet ante. Curabitur ac neque sapien, ut cursus erat.
+Suspendisse ac quam diam. Suspendisse faucibus, orci egestas viverra varius, sem
+dolor pellentesque turpis, eget egestas risus quam eget urna. Nulla ullamcorper 
+aliquet libero, nec interdum augue porta sed. Praesent interdum ornare bibendum.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ここから本文
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Section 2}
+\subsection{Subsection 2.1}
 
+Vivamus imperdiet urna id odio porta non tempus nisl pulvinar. Vivamus aliquet,
+justo id condimentum porttitor, lacus lorem ornare sapien, ut ultricies justo
+sapien in magna. Fusce vel tellus augue. Nunc sollicitudin, risus et lacinia
+mattis, tellus nibh lobortis purus, at suscipit lacus orci eu eros. Etiam id
+turpis ut odio auctor commodo. Integer sed dignissim est. Praesent accumsan erat
+id nunc ultrices imperdiet.
+
+\subsection{Subsection 2.2}
+
+Donec libero ipsum, bibendum quis ultrices sed, sollicitudin ut lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque suscipit tempus mi, ac dapibus sem adipiscing a. Nam sed risus mi. Morbi scelerisque suscipit nulla scelerisque accumsan. Aenean vel metus ligula. Etiam lobortis purus quis massa interdum condimentum. Nullam nec enim purus, eu tempor sapien. Aliquam augue nunc, imperdiet ac porttitor ut, adipiscing ac odio. Donec consequat facilisis ultricies. Cras lacinia vehicula commodo. Integer non sapien sed dolor gravida mollis. Curabitur feugiat eros in lectus tincidunt dictum.
+
+\subsubsection{Subsubsection 2.2.1}
+Phasellus gravida eleifend purus, nec
+fringilla tellus eleifend in. Praesent adipiscing orci nec augue scelerisque et semper urna egestas. Donec laoreet felis eu nulla commodo sed laoreet dolor accumsan. Sed malesuada turpis a odio viverra quis iaculis augue porta. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent massa ligula, ornare et lacinia a, tempus sit amet quam. Proin augue dui, sagittis vel cursus et, commodo id sapien. Vestibulum suscipit ipsum non nibh iaculis vitae commodo nunc volutpat. Maecenas sit amet diam felis. Duis massa ante, cursus sit amet consectetur sit amet, tempor non nulla. Etiam felis tortor, rhoncus id ullamcorper sit amet, facilisis ut metus. Nullam eu massa orci. Integer lacinia ultricies odio a scelerisque. Vestibulum at nisi id metus facilisis pharetra a nec diam. Nulla condimentum mi non ligula feugiat porta. Cras purus lectus, imperdiet non congue et, volutpat sit amet quam.
+
+\subsubsection{Subsubsection 2.2.2}
+
+Phasellus at ante nulla, lobortis mollis ante. Nam quis nulla est, eget egestas arcu. Nam sapien lorem, laoreet nec dictum aliquet, luctus ac nibh. Vestibulum non leo tortor. Aliquam sed tellus lectus. Aenean auctor, ipsum blandit feugiat vulputate, lectus nisi euismod urna, volutpat fringilla risus sapien ac arcu. Aliquam sit amet rutrum lectus.
+
+Vivamus a elit vitae ante eleifend sodales. Aliquam vitae pretium ipsum. Fusce vel arcu ipsum, ut ultrices erat. Aliquam iaculis adipiscing mauris non consectetur. Morbi et arcu leo. Etiam eget purus massa. Curabitur non nisl eros, sed lacinia mauris. Proin eget aliquet lectus. Cras convallis aliquet justo id fringilla. Duis vitae purus purus, at eleifend massa. Proin mattis metus sed velit imperdiet et egestas felis porta. Fusce lectus enim, tristique pharetra congue sed, molestie facilisis risus. Duis porta faucibus magna consectetur tristique. Aenean molestie consequat augue, et fringilla nulla venenatis eget. Suspendisse gravida commodo feugiat.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque purus eget elit iaculis laoreet. Donec libero ligula, ultrices accumsan tempor eget, faucibus sit amet ante. Curabitur ac neque sapien, ut cursus erat. Suspendisse ac quam diam. Suspendisse faucibus, orci egestas viverra varius, sem dolor pellentesque turpis, eget egestas risus quam eget urna. Nulla ullamcorper aliquet libero, nec interdum augue porta sed. Praesent interdum ornare bibendum. Vivamus imperdiet urna id odio porta non tempus nisl pulvinar. Vivamus aliquet, justo id condimentum porttitor, lacus lorem ornare sapien, ut ultricies justo sapien in magna. Fusce vel tellus augue. Nunc sollicitudin, risus et lacinia mattis, tellus nibh lobortis purus, at suscipit lacus orci eu eros. Etiam id turpis ut odio auctor commodo. Integer sed dignissim est. Praesent accumsan erat id nunc ultrices imperdiet.
+
+Donec libero ipsum, bibendum quis ultrices sed, sollicitudin ut lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque suscipit tempus mi, ac dapibus sem adipiscing a. Nam sed risus mi. Morbi scelerisque suscipit nulla scelerisque accumsan. Aenean vel metus ligula. Etiam lobortis purus quis massa interdum condimentum. Nullam nec enim purus, eu tempor sapien. Aliquam augue nunc, imperdiet ac porttitor ut, adipiscing ac odio. Donec consequat facilisis ultricies. Cras lacinia vehicula commodo. Integer non sapien sed dolor gravida mollis. Curabitur feugiat eros in lectus tincidunt dictum.
+
+Phasellus gravida eleifend purus, nec fringilla tellus eleifend in. Praesent adipiscing orci nec augue scelerisque et semper urna egestas. Donec laoreet felis eu nulla commodo sed laoreet dolor accumsan. Sed malesuada turpis a odio viverra quis iaculis augue porta. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent massa ligula, ornare et lacinia a, tempus sit amet quam. Proin augue dui, sagittis vel cursus et, commodo id sapien. Vestibulum suscipit ipsum non nibh iaculis vitae commodo nunc volutpat. Maecenas sit amet diam felis. Duis massa ante, cursus sit amet consectetur sit amet, tempor non nulla. Etiam felis tortor, rhoncus id ullamcorper sit amet, facilisis ut metus. Nullam eu massa orci. Integer lacinia ultricies odio a scelerisque. Vestibulum at nisi id metus facilisis pharetra a nec diam. Nulla condimentum mi non ligula feugiat porta. Cras purus lectus, imperdiet non congue et, volutpat sit amet quam.
+
+Phasellus at ante nulla, lobortis mollis ante. Nam quis nulla est, eget egestas arcu. Nam sapien lorem, laoreet nec dictum aliquet, luctus ac nibh. Vestibulum non leo tortor. Aliquam sed tellus lectus. Aenean auctor, ipsum blandit feugiat vulputate, lectus nisi euismod urna, volutpat fringilla risus sapien ac arcu. Aliquam sit amet rutrum lectus.
+
+Vivamus a elit vitae ante eleifend sodales. Aliquam vitae pretium ipsum. Fusce vel arcu ipsum, ut ultrices erat. Aliquam iaculis adipiscing mauris non consectetur. Morbi et arcu leo. Etiam eget purus massa. Curabitur non nisl eros, sed lacinia mauris. Proin eget aliquet lectus. Cras convallis aliquet justo id fringilla. Duis vitae purus purus, at eleifend massa. Proin mattis metus sed velit imperdiet et egestas felis porta. Fusce lectus enim, tristique pharetra congue sed, molestie facilisis risus. Duis porta faucibus magna consectetur tristique. Aenean molestie consequat augue, et fringilla nulla venenatis eget. Suspendisse gravida commodo feugiat.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque purus eget elit iaculis laoreet. Donec libero ligula, ultrices accumsan tempor eget, faucibus sit amet ante. Curabitur ac neque sapien, ut cursus erat. Suspendisse ac quam diam. Suspendisse faucibus, orci egestas viverra varius, sem dolor pellentesque turpis, eget egestas risus quam eget urna. Nulla ullamcorper aliquet libero, nec interdum augue porta sed. Praesent interdum ornare bibendum. Vivamus imperdiet urna id odio porta non tempus nisl pulvinar. Vivamus aliquet, justo id condimentum porttitor, lacus lorem ornare sapien, ut ultricies justo sapien in magna. Fusce vel tellus augue. Nunc sollicitudin, risus et lacinia mattis, tellus nibh lobortis purus, at suscipit lacus orci eu eros. Etiam id turpis ut odio auctor commodo. Integer sed dignissim est. Praesent accumsan erat id nunc ultrices imperdiet.
+
+Donec libero ipsum, bibendum quis ultrices sed, sollicitudin ut lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque suscipit tempus mi, ac dapibus sem adipiscing a. Nam sed risus mi. Morbi scelerisque suscipit nulla scelerisque accumsan. Aenean vel metus ligula. Etiam lobortis purus quis massa interdum condimentum. Nullam nec enim purus, eu tempor sapien. Aliquam augue nunc, imperdiet ac porttitor ut, adipiscing ac odio. Donec consequat facilisis ultricies. Cras lacinia vehicula commodo. Integer non sapien sed dolor gravida mollis. Curabitur feugiat eros in lectus tincidunt dictum.
+
+\newpage
 \section{はじめに}
 本稿では産業技術大学院大学紀要のフォーマットについて記す．
 Tex のフォーマットを使う執筆者はこのファイルの設定を変えずに，
@@ -258,7 +183,6 @@ $A_{4}$ & $B_{4}$ & $C_{4}$ \\ \hline
 本稿では産業技術大学院大学紀要のフォーマットについて記した．
 
 
-
 \begin{thebibliography}{99}
 \bibitem{TRA96HuHaCo} 
 S. Hutchinson, G. D. Hager and P. I. Corke,
@@ -279,13 +203,6 @@ John Wiley \& Sons, 2006.
 \bibitem{Asa02Ar}
 有本 卓, 新版 ロボットの力学と制御, 朝倉書店, 2002. 
 \end{thebibliography}
-
-
-
-
-
-
-
 
 \newpage % 消さないで
 
