@@ -1,8 +1,14 @@
-%% 産業技術大学院大学紀要
+\documentclass[a4j,10pt,twoside]{jarticle}
+%% 産業技術大学院大学紀要LaTeXスタイルシート
+
+%% ■ 図表のキャプションについて
 %% multicolを利用しているため\captionが使えません．
 %% 代わりに，\figcaption，\tblcaption を用いて
 %% 図と表の caption をつけて下さい．
-\documentclass[a4j,9pt,twoside]{jarticle}
+
+%% 英語でキャプションを記載する場合は下記2行のコメントを外してください
+ \renewcommand{\figurename}{Fig.}
+ \renewcommand{\tablename}{Table.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% パッケージ
@@ -12,16 +18,11 @@
 \usepackage{amsmath}  % 数式用
 \usepackage{amsthm}
 \usepackage{multicol}
-\usepackage{fancyhdr} % ヘッダー・フッター用
 \usepackage{newcent}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 図表番号の定義
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% 英語でキャプションを記載する場合は下記2行のコメントを外してください
-% \renewcommand{\figurename}{Fig.}
-% \renewcommand{\tablename}{Table.}
 
 \makeatletter% @記号を通常文字として扱う
 \newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
@@ -81,28 +82,9 @@
     <10.95><12><14.4><17.28><20.74><24.88> tmin10 <-> tmin10}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ヘッダー・フッター
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagestyle{fancy}
-\lhead[{\small \thepage\hspace{2zw}
-%ヘッダー・著者名 
-中鉢欣秀
-}]{}
-\chead[]{} 
-\rhead[]{{\small
-%ヘッダー・論文タイトル
-あああ産技大紀要フォーマットについて
-\hspace{2zw}\thepage}}
-\lfoot[]{} 
-\cfoot[]{} 
-\rfoot[]{} 
-\renewcommand{\headrulewidth}{0.4pt} % ヘッダー罫線
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 参考文献
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\refname}{{\normalsize \bf 参考文献}}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 文書
