@@ -33,9 +33,9 @@
 \makeatletter% @記号を通常文字として扱う
 \newcommand*{\etitle}[1]{\gdef\@etitle{#1}}
 \newcommand*{\eauthor}[1]{\gdef\@eauthor{#1}}
-\newcommand*{\eabstract}[1]{\gdef\@eabstract{#1}}
+\newcommand*{\eabstract}[1]{\long\def\@eabstract{#1}}
 \newcommand*{\keywords}[1]{\gdef\@keywords{#1}}
-
+% http://ea3pch.yz.yamagata-u.ac.jp/member/sumio/tex/styleuse.pdf
 \renewcommand{\maketitle}{%
   %\newpage\null
   %\vskip 2em
@@ -47,15 +47,17 @@
     {\large \@author \par}
     \vskip 2em
     % 英文タイトル
-    {\Large \@etitle \par}%
+    {\Large\bf \@etitle \par}%
     \vskip 1em
-    {\large \@eauthor \par}%
+    {\large\bf \@eauthor \par}%
     \vskip 1.5em
-    {\large Abstract}
+    {\large\bf Abstract}
   \end{center}%
-  {\noindent \normalsize \@eabstract \par}
+  %\begin{quotation}
+    {\normalsize \@eabstract \par}
+  %\end{quotation}
   \vskip 1em
-  {\noindent \normalsize Keywords: \@keywords \par} 
+  {\normalsize {\bf Keywords:} \@keywords \par} 
   \vskip 1.5em
   \setcounter{footnote}{0}%
   \global\let\thanks\relax
@@ -101,16 +103,16 @@
 \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
 % セクションの書式を設定します
 \renewcommand{\section}{\@startsection{section}{1}{\z@}%
-   {0.4\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
-   {0.4\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
+   {0\Cvs}%{0.5\Cvs \@plus1.0\Cvs \@minus0.5\Cvs}%
+   {0\Cvs}%{0.5\Cvs \@plus1.0\Cvs \@minus.5\Cvs}%
    {\reset@font\large\bfseries}}
 \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-   {0\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
-   {0\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
+   {0\Cvs}%{0\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
+   {0\Cvs}%{0\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
    {\reset@font\normalsize\bfseries}}
 \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-   {0\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
-   {0\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
+   {0\Cvs}%{0\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
+   {0\Cvs}%{0\Cvs \@plus.0\Cvs \@minus.0\Cvs}%
    {\reset@font\normalsize\bfseries}}
 \makeatother% @記号を特殊文字に戻す
 
