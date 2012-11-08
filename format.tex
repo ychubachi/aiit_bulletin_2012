@@ -1,4 +1,7 @@
+%% ※このファイルを修正してください※
+
 %% 産業技術大学院大学紀要LaTeXスタイルシート
+%% Y.Chubachi 2012
 
 %% jsarticleスタイルとmulticolを組み合わせて組版します
 %% jsclasses -> http://www.misojiro.t.u-tokyo.ac.jp/suribt/jsclasses.pdf
@@ -23,9 +26,9 @@
 % 標題（1段組み）
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{産技大紀要フォーマットについて}
-\author{中 鉢 欣 秀$^{*}$}
-\etitle{Co-creative Software Development}
-\eauthor{Yoshihide Chubachi$^{*}$}
+\author{産技太郎$^{*}$・産 技 花 子$^{**}$}
+\etitle{Style and Layout of an AIIT Bulletin}
+\eauthor{Taro Sangi$^{*}$ and Hanako Sangi$^{**}$}
 \eabstract{
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
 nulla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
@@ -36,7 +39,8 @@ et malesuada fames ac turpis egestas. Aliquam erat volutpat.
 %
 Ut pulvinar, massa vitae gravida pharetra, libero tellus tristique lectus, in
 congue quam lectus in justo. Nulla pellentesque commodo lorem quis dictum. Nulla
-lacus nulla, dapibus ac placerat sed, aliquam sit amet eros. Morbi eu elit.}
+lacus nulla, dapibus ac placerat sed, aliquam sit amet eros. Morbi eu
+elit.(approx. 100 word)}
 \keywords{Keywords in English. (approx. 5 Keywords)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,8 +55,11 @@ lacus nulla, dapibus ac placerat sed, aliquam sit amet eros. Morbi eu elit.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \footnotetext{\hspace{-2em}% 送付日
   Received on September 25, 2010.}
-\footnotetext{\hspace{-2em}% 著者所属 1
- $^{*}$ 産業技術研究科, School of Industrial Technology, AIIT}
+\footnotetext{\hspace{-2em}% 著者所属 2
+ $^{*}$ 産業技術大学院大学 産業技術研究科, School of Industrial Technology, Advanced Institute
+ of Industrial Technology} \footnotetext{\hspace{-2em}% 著者所属 1
+ $^{*}$ 首都大学東京，システムデザイン研究科, Graduate School of System Design, Tokyo Metropolitan
+ University}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 本文（2段組み）
@@ -63,7 +70,9 @@ lacus nulla, dapibus ac placerat sed, aliquam sit amet eros. Morbi eu elit.}
 \LaTeX のフォーマットを使う執筆者はこのファイルの設定を変えずに，
 このファイルの中身を書き換えて使うこと．
 
-\section{標題等ついて}
+なお文中の「Lorem ipsum\ldots」から始まる文はダミーのテキストであるので読み飛ばすこと．
+
+\section{標題等について}
 \subsection{原稿}
 原稿は，日本語もしくは英語による完全版下(camera ready)原稿とする．製版後の校正は原則として不可能であるため，誤字や脱字がないよう，特に念を入れて仕上げる．刷り上がりは，6頁以上が望ましい．
 
@@ -80,7 +89,6 @@ lacus nulla, dapibus ac placerat sed, aliquam sit amet eros. Morbi eu elit.}
 別紙産技大紀要カメラレディ用見本に従って，[和文標題，和文著者名，英文標
 題，英文著者名，英文アブストラクト，英文キーワード，所属]の割付を行う．
 
-
 \section{本文について}
 
 \subsection{余白}
@@ -92,23 +100,34 @@ lacus nulla, dapibus ac placerat sed, aliquam sit amet eros. Morbi eu elit.}
 \subsection{句読点}
 句読点には，全角ピリオド(．)，全角コンマ(，)を用いること．
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+nulla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
+fames ac turpis egestas. Aliquam erat volutpat. Sed tristique ipsum eu nisl
+viverra a accumsan elit ultricies. Fusce porta eros a lectus scelerisque vitae
+eleifend odio interdum. Pellentesque habitant morbi tristique senectus et netus
+et malesuada fames ac turpis egestas. Aliquam erat volutpat.
 
 \section{図・表について}
 \subsection{キャプション}
 図・表には，図1，図2，表1，表2 のように論文全体で通し番号をつけること．
 表のキャプションは表の上に，図のキャプションは図の下につけること．図・表
-ともに配置は中央揃えにすること．英文の場合には，Fig. 1，Fig. 2，Table 1，
+ともに配置は中央揃えにすること．
+
+英文の場合には，Fig. 1，Fig. 2，Table 1，
 Table 2のように，番号をつけること．通し番号，標題は本文と同じ書体を使用
-すること．multicols を用いたため figure 環境，table 環境は使えない．
+すること．
+
+multicols を用いたため figure 環境，table 環境は使えない．
 通常の caption が使えないため．代わりに figcaption，tblcaption を用いて
 図と表の caption をつけること．以下に例を示す．
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                               %%%
 %%%                     Fig                       %%%
 %%%                                               %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-\scalebox{.2}{\includegraphics{aiit_logo.eps}}
+\scalebox{.21}{\includegraphics{aiit_logo.eps}}
 \figcaption{図のキャプション}
 \label{fig:VFS}
 \end{center}
@@ -143,6 +162,46 @@ $A_{4}$ & $B_{4}$ & $C_{4}$ \\ \hline
 \section{おわりに}
 本稿では産業技術大学院大学紀要のフォーマットについて記した．
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+nulla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
+fames ac turpis egestas. Aliquam erat volutpat. Sed tristique ipsum eu nisl
+viverra a accumsan elit ultricies. Fusce porta eros a lectus scelerisque vitae
+eleifend odio interdum. Pellentesque habitant morbi tristique senectus et netus
+et malesuada fames ac turpis egestas. Aliquam erat volutpat.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+nulla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
+fames ac turpis egestas. Aliquam erat volutpat. Sed tristique ipsum eu nisl
+viverra a accumsan elit ultricies. Fusce porta eros a lectus scelerisque vitae
+eleifend odio interdum. Pellentesque habitant morbi tristique senectus et netus
+et malesuada fames ac turpis egestas. Aliquam erat volutpat.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+nulla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
+fames ac turpis egestas. Aliquam erat volutpat. Sed tristique ipsum eu nisl
+viverra a accumsan elit ultricies. Fusce porta eros a lectus scelerisque vitae
+eleifend odio interdum. Pellentesque habitant morbi tristique senectus et netus
+et malesuada fames ac turpis egestas. Aliquam erat volutpat.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+nulla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
+fames ac turpis egestas. Aliquam erat volutpat. Sed tristique ipsum eu nisl
+viverra a accumsan elit ultricies. Fusce porta eros a lectus scelerisque vitae
+eleifend odio interdum. Pellentesque habitant morbi tristique senectus et netus
+et malesuada fames ac turpis egestas. Aliquam erat volutpat.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+nulla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
+fames ac turpis egestas. Aliquam erat volutpat. Sed tristique ipsum eu nisl
+viverra a accumsan elit ultricies. Fusce porta eros a lectus scelerisque vitae
+eleifend odio interdum. Pellentesque habitant morbi tristique senectus et netus
+et malesuada fames ac turpis egestas. Aliquam erat volutpat.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+nulla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
+fames ac turpis egestas. Aliquam erat volutpat. Sed tristique ipsum eu nisl
+viverra a accumsan elit ultricies. Fusce porta eros a lectus scelerisque vitae
+eleifend odio interdum.
 
 \begin{thebibliography}{99}
 \bibitem{TRA96HuHaCo} 
