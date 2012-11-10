@@ -1,0 +1,85 @@
+%% ※このファイルは修正しないでください※
+
+%% 産業技術大学院大学紀要LaTeXスタイルシート
+%% Y.Chubachi 2012
+
+%% TODO: 和文の標題と著者名を表示しない方法
+
+%% 参考
+%% http://ea3pch.yz.yamagata-u.ac.jp/member/sumio/tex/styleuse.pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% パッケージ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titling}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ページのサイズ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 左右マージン
+\setlength{\oddsidemargin}{-1.4mm}    % 標準（1in=25.4mm) -1.4mm = 24.0mm
+\setlength{\evensidemargin}{-5.4mm}   % 標準（1in=25.4mm) -5.4mm = 20.0mm
+% 上下マージン
+\setlength{\topmargin}{4.6mm}         % 標準（1in=25.4mm) +4.6mm = 30.0mm
+\setlength{\headheight}{0.0mm}
+\setlength{\headsep}{0.0mm}
+% テキストの大きさ
+% （jsarticleで9pt指定のため長さの単位にtruemmを使っています）
+\setlength{\textwidth}{166.0truemm}   % A4横210.0mm -(24.0+20.0)mm = 166.0mm
+\setlength{\textheight}{247.0truemm}  % A4縦297mm - (20.0 + 30.0)mm =247.0mm
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 明朝体イタリックフォントに関する警告の抑制
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontShape{JY1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*min
+    <10.95><12><14.4><17.28><20.74><24.88> min10 <-> min10}{}
+\DeclareFontShape{JT1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*tmin
+    <10.95><12><14.4><17.28><20.74><24.88> tmin10 <-> tmin10}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% タイトルの定義
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\date{} % 標準の日付を出力しないようにします
+\setlength{\droptitle}{1zw} % 標題の開始位置
+
+% 英文表題を登録するための命令を定義します
+%\makeatletter% @記号を通常文字として扱う
+\newcommand*{\etitle}[1]{\gdef\@etitle{#1}}
+\newcommand*{\eauthor}[1]{\gdef\@eauthor{#1}}
+\newcommand*{\eabstract}[1]{\long\def\@eabstract{#1}}
+\newcommand*{\keywords}[1]{\gdef\@keywords{#1}}
+
+\renewcommand{\maketitlehooka}{
+　　\setcounter{footnote}{1}% 所属に用いるthanksの番号を1から開始します
+}
+
+\renewcommand{\maketitlehookd}{
+  \begin{center}
+    % 英文標題
+    {\Large\bf \@etitle \par}
+    \vskip 1em
+    {\large\bf \@eauthor \par}
+    \vskip 2em
+    % 英文概要
+    {\large\bf Abstract}
+  \end{center}%
+  {\normalsize \@eabstract \par}
+  \vskip 1em
+  {\normalsize {\bf Keywords:} \@keywords \par}
+  \vskip 1zw
+}
+
+\setlength{\thanksmarkwidth}{1zw}
+\setlength{\thanksmargin}{0zw}
+
+\newcommand*{\receivedon}[1]{\gdef\@receivedon{#1}}
+\newcommand*{\makereceivedon}{
+  \footnotetext{\hspace{-16pt} Received on \@receivedon.}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 参考文献
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\refname}{\centering \normalsize \bf 参考文献}
+
