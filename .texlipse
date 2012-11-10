@@ -1,5 +1,5 @@
 #TeXlipse project settings
-#Thu Nov 08 12:51:49 JST 2012
+#Sun Nov 11 01:58:00 JST 2012
 markTmpDer=true
 builderNum=4
 outputDir=
@@ -7,8 +7,8 @@ makeIndSty=
 bibrefDir=
 outputFormat=pdf
 tempDir=tmp
-mainTexFile=format.tex
-outputFile=format.pdf
+mainTexFile=chubachi.tex
+outputFile=chubachi.pdf
 langSpell=
 markDer=true
 srcDir=
