@@ -1,4 +1,4 @@
-\documentclass[a4j,9pt,twoside,twocolumn]{jsarticle}
+\documentclass[a4j,9pt,twocolumn,twoside]{jsarticle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% オプション
@@ -12,9 +12,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% パッケージ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{aiitbulletin} % AIIT紀要スタイルの読み込み
-\usepackage[dvipdfm]{graphicx} % 図の取り込み(PDF対応)用
-\usepackage{mediabb} % PDF画像サイズ取得用
+\usepackage{aiitbulletin} % AIIT紀要スタイルの読み込み(PDF画像取り込み対応)
 %% ここに必要なパッケージを追加してください
 % \usepackage{amsmath}  % 数式用
 % \usepackage{amsthm} % 数式用
@@ -64,7 +62,7 @@ model.
 	グローバルなマーケットとの直接的な対話を通して
 	ソフトウェア・サービスを開発する，アジャイル型の新しい開発プロセスである．本研究では，この
 	開発プロセスを定義し，プロジェクト型学習（PBL）により教育するための教材および教授法を開発することを目的とする．
-	
+
 	%###
 	本研究者らが行なってきたPBL支援インフラストラクチャの構築
 	\cite{pub:chubachi-ipbl-2012}\cite{pub:chubachi-ipbl-2011}%
@@ -75,28 +73,29 @@ model.
 	次世代型のソフトウェア開発者育成法として普及を図る．
 	%###
 	
-	以下,
-	\ref{sec:purpose}で研究の目的について述べ，
-	\ref{sec:method}ではこの研究を達成するための目標について述べる．
-	最後に\ref{sec:fin}でまとめを述べる．
+%	以下,
+%	\ref{sec:purpose}で研究の目的について述べ，
+%	\ref{sec:method}ではこの研究を達成するための目標について述べる．
+%	最後に\ref{sec:fin}でまとめを述べる．
 	
 \section{研究の目的}\label{sec:purpose}
 \subsection{コ・クリエイティブなソフトウェア開発}
 
 	%###
-    コ・クリエイション
-    \footnote{co-creation．日本語では「共創」と訳すことが多いが，本研究では「協創」と表記する．}
+    コ・クリエイション（Co-creation）
     とは，マーケティング分野の用語であり，
     商品やサービスの開発にあたり企業が顧客を巻き込むことでよりよいものを創りだすことを指す．
     
     コ・クリエイションの最近の事例としては，Starbucks，Dellなどが顧客のアイディア
     をソーシャルメディアにより収集し，
-    自社のサービス改善につなげていることが報告されている\cite{wired}．
+    自社のサービス改善につなげていることが報告されている~\cite{wired}．
 
     一方で，ソフトウェア開発においては，Linuxを代表とするオープンソース型の
     ソフトウェア（OSS）開発のスタイルに見られるように，利用者と開発者が一体となって
-    ソフトウェア・プロダクトを開発事例が数多く存在する．OSSの開発では利用者と開発者とが協創的に
-    振る舞うことが，価値あるソフトウェアを生み出すための原動力となっている\cite{oss}．
+    ソフトウェア・プロダクトを開発事例が数多く存在する．OSSの開発では利用者と開発者とが協創
+    \footnote{コ・クリエイションは「共創」と訳されることが多いが，本研究では「協創」と表記する．}
+    的に
+    振る舞うことが，価値あるソフトウェアを生み出すための原動力となっている~\cite{oss}．
     
     これらを踏まえ，本研究ではマーケティング分野の概念であるコ・クリエイションをソフトウェア開発領域に適用した
     新しいソフトウェア開発プロセスを定義し，PBLで学習できるようにする．
@@ -106,7 +105,7 @@ model.
     
 \begin{figure}
 \begin{center}
-\includegraphics[width=\linewidth]{figs/user_vendor_model.pdf}
+\includegraphics[width=0.9\linewidth]{figs/user_vendor_model.pdf}
 \caption{ユーザ企業とベンダ企業の構造}
 \label{fig:user_vendor_model}
 \end{center}
@@ -170,7 +169,7 @@ model.
     
 \begin{figure}
 \begin{center}
-\includegraphics[width=\linewidth]{figs/CcSD.pdf}
+\includegraphics[width=0.9\linewidth]{figs/CcSD.pdf}
 \caption{コ・クリエイティブなソフトウェア開発チームの振る舞い}
 \label{fig:CcSD}
 \end{center}
@@ -184,6 +183,16 @@ model.
     PBLが効果を上げている\cite{pub:matsuzawa-2008}．
     %###
     
+
+\section{研究の目標}\label{sec:method}
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figs/scrum.pdf}
+\caption{Scrumの全体像（吉羽氏資料より）}
+\label{fig:scrum}
+\end{center}
+\end{figure*}
+
     ただし，既存のPBLではユーザ・ベンダ型の構造を前提とした上で，プロジェクトの中で
     それぞれのロールを体験することによる教育効果を狙ったものが多い．
     これでは産業構造の変化を踏まえた次世代の開発者を育成する内容として不十分である．
@@ -193,28 +202,6 @@ model.
     以上の背景を踏まえ，次世代のソフトウェア開発者を育成するための
     「コ・クリエイティブなソフトウェア開発者を育成するPBL型教育」の手法を確立し，必要な教材やWebサービスとともにパッケージ化し，
     様々な教育機関における教育に提供できる成果を得ることを本研究の目的とする．
-
-\section{研究の目標}\label{sec:method}
-%\subsection{研究計画の概要}
-% 	本研究では実施期間内においてアジャイル（迅速）に教材の開発と適用を繰り返し，より教育効果の高い
-% 	PBL用電子教材を作成する．
-% 	これには，迅速な電子教材開発のための「アジャイル教材製作スタジオ」を構築し，
-% 	コンテンツとして用いる動画や音声を素早く製作できるように工夫する．
-% 	製作した電子教材は，学生や教員がPBL実施時にオン・デマンドで参照できるようにし，
-% 	学生の自発的な学びを支援する．
-% 
-% 	初年度はScrum型の開発プロセスの教材を作成し，以降，コ・クリエイティブなソフトウェア開発のために
-% 	必要な内容を拡充させる．成果物は本学および他大学でのPBLにおいて複数回利用し，改善を繰り返す．
-% 	また，電子教材はクラウド型のサービスを用いて利用者に
-% 	広く提供するものとする．
- 
-\begin{figure}
-\begin{center}
-\includegraphics[width=\linewidth]{figs/scrum.pdf}
-\caption{Scrumの全体像（吉羽氏資料より）}
-\label{fig:scrum}
-\end{center}
-\end{figure}	
 
 \subsection{PBLによるScrumの学習}
 	%###
