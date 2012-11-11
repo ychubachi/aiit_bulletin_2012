@@ -26,5 +26,6 @@
 *.mtc
 *.mtc0
 tmp
+.tex
 /format.pdf
 /chubachi.pdf
