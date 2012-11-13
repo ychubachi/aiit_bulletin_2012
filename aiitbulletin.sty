@@ -71,24 +71,26 @@
     \fi
     % 英文標題
     \ifx\@etitle\@undefined\else
-      {\Large \@etitle \par}
+      {\Large \textbf{\@etitle} \par}
       \vskip 1em
     \fi
     % 英文著者名
     \ifx\@eauthor\@undefined\else
       \begin{tabular}[t]{c}
-        \@eauthor
+        \textbf{\@eauthor}
       \end{tabular}\par
-      \vskip 1em
+      \vskip 1.5em
     \fi
   \end{center}
-  \vskip 1.5em
+  % 英文概要
+  \vskip 1.0em
   \centerline{\box\@abstractbox}
+  \vskip 1.0em
+  % 英文キーワード
   \ifx\@keywords\@undefined\else
-    \vskip 1.5em
     \centerline{\parbox{157mm}{\textbf{Keywords:} \small\@keywords}}
   \fi
-  \vskip 1.5em}
+  \vskip 2.0em}
 
 % 受付日を出力するための命令定義です
 \newcommand*{\receivedon}[1]{\gdef\@receivedon{#1}}
