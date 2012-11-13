@@ -3,8 +3,6 @@
 %% 産業技術大学院大学紀要LaTeXスタイルシート
 %% Y.Chubachi 2012
 
-%% TODO: 和文の標題と著者名を表示しない方法
-
 %% 参考
 %% http://ea3pch.yz.yamagata-u.ac.jp/member/sumio/tex/styleuse.pdf
 
@@ -13,7 +11,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[dvipdfm]{graphicx} % 図の取り込み(PDF対応)用
 \usepackage[inner=2.4cm, outer=2.0cm, top=3.0cm, bottom=2.0cm,
-  columnsep=2zw, includefoot, dvipdfm]{geometry} % truedimen,
+  columnsep=2zw, includefoot, dvipdfm]{geometry} % 頁サイズの設定用
 \usepackage{mediabb} % PDF画像サイズ取得用
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -25,10 +23,15 @@
 \newcommand*{\eauthor}[1]{\gdef\@eauthor{#1}}
 \renewenvironment{abstract}%
   {\global\setbox\@abstractbox\hbox\bgroup
-   \begin{minipage}[b]{157mm}{\centerline{\textbf{Abstract}}\par}
-   \parindent6mm}
+   \begin{minipage}[b]{\abstractwidth}{\centerline{\textbf{Abstract}}\par}
+   ％\parindent6mm
+   }
   {\end{minipage}\egroup}
 \newcommand*{\keywords}[1]{\gdef\@keywords{#1}}
+
+% 概要とキーワードの横幅を指定します
+\newlength{\abstractwidth}
+\setlength{\abstractwidth}{0.8\textwidth}
 
 % \maketitleを再定義します  
 \renewcommand{\maketitle}{\par
@@ -88,7 +91,7 @@
   \vskip 1.0em
   % 英文キーワード
   \ifx\@keywords\@undefined\else
-    \centerline{\parbox{157mm}{\textbf{Keywords:} \small\@keywords}}
+    \centerline{\parbox{\abstractwidth}{\textbf{Keywords:} \small\@keywords}}
   \fi
   \vskip 2.0em}
 

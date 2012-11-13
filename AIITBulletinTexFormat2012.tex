@@ -1,0 +1,273 @@
+%% multicols を用いたため figure 環境，table 環境は使えません． 
+%% すると通常の caption が使えなくなります．
+%% 代わりに，\figcaption，\tblcaption を用いて
+%% 図と表の caption をつけて下さい．
+\documentclass[a4j,9pt,twoside]{jarticle}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath}    
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{newcent}
+\normalfont
+
+\def\fnum@figure{Fig. \thefigure} 
+\def\fnum@table{Table \thetable} 
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+   {1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+   {.3\Cvs \@plus.3\Cvs}%
+   {\reset@font\normalsize\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+   {1\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+   {.01\Cvs \@plus.01\Cvs}%
+   {\reset@font\small\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+   {1\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+   {.01\Cvs \@plus.01\Cvs}%
+   {\reset@font\small\bfseries}}
+\long\def\@makecaption#1#2{%
+  \small%% add this line
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
+\makeatother
+
+
+
+\setlength{\oddsidemargin}{-1.4mm}
+\setlength{\evensidemargin}{-5.4mm}
+\setlength{\textwidth}{16.6cm}
+\setlength{\topmargin}{-7.4mm}
+\setlength{\headsep}{4.5mm}
+\setlength{\textheight}{24.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% タイトル 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\lhead[{\small \thepage\hspace{2zw}
+%ヘッダー・著者名 
+産技太郎，産技花子
+}]{}
+\chead[]{} 
+\rhead[]{{\small
+%ヘッダー・論文タイトル
+産技大紀要フォーマットについて
+\hspace{2zw}\thepage}}
+\lfoot[]{} 
+\cfoot[]{} 
+\rfoot[]{} 
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\refname}{{\normalsize \bf 参考文献}}
+
+\begin{document}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}{\fnsymbol{footnote}}
+
+\vspace{-0.78cm}
+
+\begin{center}
+\vspace{0.5cm}
+
+{\LARGE \bf 
+% 論文タイトル
+産技大紀要フォーマットについて
+}
+
+\vspace{.6cm}
+
+{\large 
+% 論文著者名
+産　技　太　郎$^{*}$・産　技　花　子$^{**}$
+}
+
+\vspace{.6cm}
+
+{\Large 
+% 論文英語タイトル
+Style and Layout of an AIIT Bulletin
+}\\
+
+\vspace{.4cm}
+
+{\large 
+% 論文英語著者名
+Taro Sangi$^{*}$ and Hanako Sangi$^{**}$
+}
+
+\vspace{.4cm}
+{\large Abstract}
+\end{center}
+
+\vspace{-2ex}
+\noindent
+{\normalsize
+% アブストラクト
+Abstract in English. (approx. 100 Words) 
+\vspace{.3cm}
+
+\noindent
+Keywords: 
+% キーワード
+Keywords in English. (approx. 5 Keywords)
+}
+
+\vspace{.5cm}
+
+\begin{multicols}{2}
+\small
+\setlength{\skip\footins}{1.7cm}
+\setlength{\baselineskip}{14.75pt}
+\footnotetext{\hspace{-4.5ex}
+% 送付日
+Received on September 25, 2010.
+}
+\footnotetext{\hspace{-4.5ex}
+% 著者所属 1
+$^{*}$ 産業技術研究科, School of Industrial Technology, AIIT
+}
+\footnotetext{\hspace{-4.5ex}
+% 著者所属 2
+$^{**}$ 首都大学東京，システムデザイン研究科， 
+Graduate School of System Design, Tokyo Metropolitan University
+}
+\footnotetext{\vspace{-8mm}} % 消すな
+
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ここから本文
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{はじめに}
+本稿では産業技術大学院大学紀要のフォーマットについて記す．
+Tex のフォーマットを使う執筆者はこのファイルの設定を変えずに，
+このファイルの中身を書き換えて使うこと．
+
+\section{標題等ついて}
+\subsection{原稿}
+原稿は，日本語もしくは英語による完全版下(camera ready)原稿とする．製版後の校正は原則として不可能であるため，誤字や脱字がないよう，特に念を入れて仕上げる．刷り上がりは，6頁以上が望ましい．
+
+\subsection{標題}
+標題は和文ならびに英文とする．英文原稿の場合は，和文表題を記述するところに英文標題を記述し，通常の英文標題のところは削除すること．
+
+\subsection{著者名・所属}
+著者名も英文による原稿の場合は，通常の和文著者名のところに英文で記述し，英文著者名のところは削除すること．所属も英文で記述すること．
+
+\subsection{アブストラクト・キーワード}
+和文ではなく英文で記述すること．アブストラクトは100語程度とし，キーワードは5つ程度とする．
+
+\subsection{標題等の割付}
+別紙産技大紀要カメラレディ用見本に従って，[和文標題，和文著者名，英文標
+題，英文著者名，英文アブストラクト，英文キーワード，所属]の割付を行う．
+
+
+\section{本文について}
+
+\subsection{余白}
+天地左右余白(マージン)・段間余白(コラムスペース)も産技大紀要カメラレディ用見本に従う．
+
+\subsection{見出し}
+原稿には，大見出し，中見出しなどを設け，それらを明瞭に区分する．さらに細分を要するときは，著者の分類に委ねる．
+
+\subsection{句読点}
+句読点には，全角ピリオド(．)，全角コンマ(，)を用いること．
+
+
+\section{図・表について}
+\subsection{キャプション}
+図・表には，図1，図2，表1，表2 のように論文全体で通し番号をつけること．
+表のキャプションは表の上に，図のキャプションは図の下につけること．図・表
+ともに配置は中央揃えにすること．英文の場合には，Fig. 1，Fig. 2，Table 1，
+Table 2のように，番号をつけること．通し番号，標題は本文と同じ書体を使用
+すること．multicols を用いたため figure 環境，table 環境は使えない．
+通常の caption が使えないため．代わりに figcaption，tblcaption を用いて
+図と表の caption をつけること．以下に例を示す．
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                               %%%
+%%%                     Fig                       %%%
+%%%                                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\scalebox{.2}{\includegraphics{AIIT_Symbol.eps}}
+\figcaption{図のキャプション}
+\label{fig:VFS}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                               %%%
+%%%                    Table                      %%%
+%%%                                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tblcaption{表のキャプション}
+\label{tab:cost2}
+\begin{center}
+\begin{tabular}{|c|c|c|} \hline
+A & B & C \\ \hline
+$A_{1}$ & $B_{1}$ & $C_{1}$ \\ \hline
+$A_{2}$ & $B_{2}$ & $C_{2}$ \\ \hline
+$A_{3}$ & $B_{3}$ & $C_{3}$ \\ \hline
+$A_{4}$ & $B_{4}$ & $C_{4}$ \\ \hline
+\end{tabular}
+\end{center}
+
+\subsection{図の中の文字等}
+ 図・表は，印刷に十分耐えうるものでなければならない．刷り上がり時の文字が小さすぎないよう十二分に配慮し，線の太さにも注意する．
+
+\subsection{色刷り}
+図・表に色刷りを必要とする場合は，別途連絡すること．ただし，製本上の都合で色刷り頁を設けることができない場合もありうる．
+
+\section{参考文献について}
+参考文献は，通し番号とし，本文中では，当該事項または人名などの参考とする
+後に，\cite{TRA96HuHaCo}，\cite{SICE02Yo}--\cite{Asa02Ar} のように記す．文章の末尾に記す必要がある場合には，句読点の前に記す．参考文献は，原則として，雑誌の場合は，著者，標題，雑誌名，巻，号，頁，年の順に記す．また，著書の場合は，著者，書名，発行所，発行年の順に記す．参考文献例を本文の最後に挙げるので参考されたい．
+
+\section{おわりに}
+本稿では産業技術大学院大学紀要のフォーマットについて記した．
+
+
+
+\begin{thebibliography}{99}
+\bibitem{TRA96HuHaCo} 
+S. Hutchinson, G. D. Hager and P. I. Corke,
+``A Tutorial on Visual Servo Control,''
+{\it IEEE Trans. Robotics and Automation},
+Vol.~12, No.~5, pp.~651--670, 1996.
+%
+\bibitem{SICE02Yo}
+吉川恒夫,
+``ロボット技術,''
+計測と制御, Vol.~41, No.~1, pp.~17--21, 2002.
+%
+\bibitem{Joh06SpHuVi} 
+M. W. Spong, S. Hutchinson and M. Vidyasagar, 
+{\it Robot Modeling and Control}, 
+John Wiley \& Sons, 2006. 
+%
+\bibitem{Asa02Ar}
+有本 卓, 新版 ロボットの力学と制御, 朝倉書店, 2002. 
+\end{thebibliography}
+
+
+
+
+
+
+
+
+\newpage % 消さないで
+
+\end{multicols}
+\end{document}
+
+
