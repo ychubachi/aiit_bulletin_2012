@@ -1,10 +1,10 @@
 \documentclass[a4j,9pt,twocolumn,twoside]{jsarticle}
+% AIIT紀要スタイルの読み込み(PDF画像取り込み対応)
+\usepackage{aiitbulletin}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% オプション
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%% ■ 図表のキャプションについて
 %% 英語でキャプションを記載する場合は下記2行のコメントを外してください
 % \renewcommand{\figurename}{Fig.}
 % \renewcommand{\tablename}{Table.}
@@ -12,55 +12,58 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% パッケージ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{aiitbulletin} % AIIT紀要スタイルの読み込み(PDF画像取り込み対応)
 %% ここに必要なパッケージを追加してください
 % \usepackage{amsmath}  % 数式用
-% \usepackage{amsthm} % 数式用
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% コマンド
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ここに必要なコマンド定義を追加してください
 \newcommand{\me}{中鉢 欣秀}
 \newcommand{\meen}{Y.~Chubachi}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 標題（1段組み）
+% 標題
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{ユーザ・ベンダ型モデルから\\協創型ソフトウェア開発モデルへのアプローチ}
 \author{
-中 鉢 欣 秀
-\thanks{産業技術大学院大学 産業技術研究科, School of Industrial Technology, Advanced Institute of Industrial Technology}
-}
-\etitle{An Approarch for Software Development PBL \\ from User-Vender to Co-creative Model}
-\eauthor{Yoshihide Chubachi\thanksmark{2}}
-\eabstract{
+  中 鉢 欣 秀
+  \thanks{産業技術大学院大学 産業技術研究科, School of Industrial Technology,
+    Advanced Institute of Industrial Technology}}
+\etitle{An Approarch for Software Development PBL \\
+  from User-Vender to Co-creative Model}
+\eauthor{Yoshihide Chubachi\footnotemark[2]}
+\begin{abstract}
 In this paper, a novel software engineer education method for Project-Based
 Learning is proposed.  Recently, industrial business models in information
 technology are changing rapidly.  In Japan, so-called ``User vs. Vender model'' is
-quiet common for Japanese traditional IT companies.  On the other hand, there
+quiet common for Japanese traditional IT companies.
+
+On the other hand, there
 are a lot of companies who develop their software service through the dialogue
 with their customer directory.  Such novel model shall be called ``Co-Creative
 Software Development: CcSD'' model which derived from marketing field research. 
 We propose a new PBL for educating the new engineers who can adapt to CcSD
 model.
-}
+\end{abstract}
 \keywords{Co-creation, Software Development, PBL}
 \receivedon{September 25, 2012} % 送付日
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 文書
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 以下の4行は編集しないでください（標題・送付日等を印字するための命令を含みます）
 \begin{document}
-% 以下の3行は標題・送付日等を印字するためのものです（編集しないでください）
 \pagestyle{empty}
-\maketitle\thispagestyle{empty} % 改行を入れないでください
+\maketitle
 \makereceivedon % 送付日を印字します
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 本文（2段組み）
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{はじめに}
 
 	本研究者らが提案する「コ・クリエイティブなソフトウェア開発方法論」とは，ソフトウェア開発者が
 	グローバルなマーケットとの直接的な対話を通して
-	ソフトウェア・サービスを開発する，アジャイル型の新しい開発プロセスである．本研究では，この
+	ソフトウェア・サービスを開発する，アジャイル型の新しい開発プロセスである．
+	
+	本研究では，この
 	開発プロセスを定義し，プロジェクト型学習（PBL）により教育するための教材および教授法を開発することを目的とする．
 
 	%###

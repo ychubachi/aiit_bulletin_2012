@@ -11,64 +11,92 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% パッケージ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{titling} % タイトルのカスタマイズ用
-\usepackage[inner=2.4cm, outer=2.0cm, top=3.0cm, bottom=2.0cm,
-  columnsep=2zw, includefoot]{geometry}
 \usepackage[dvipdfm]{graphicx} % 図の取り込み(PDF対応)用
+\usepackage[inner=2.4cm, outer=2.0cm, top=3.0cm, bottom=2.0cm,
+  columnsep=2zw, includefoot, dvipdfm]{geometry} % truedimen,
 \usepackage{mediabb} % PDF画像サイズ取得用
-  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 明朝体イタリックフォントに関する警告の抑制
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareFontShape{JY1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*min
-    <10.95><12><14.4><17.28><20.74><24.88> min10 <-> min10}{}
-\DeclareFontShape{JT1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*tmin
-    <10.95><12><14.4><17.28><20.74><24.88> tmin10 <-> tmin10}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% タイトルの定義
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\date{} % 標準の日付を出力しないようにします
-% \setlength{\droptitle}{1zw} % 標題の開始位置
 
 % 英文表題を登録するための命令を定義します
-%\makeatletter% @記号を通常文字として扱う
 \newcommand*{\etitle}[1]{\gdef\@etitle{#1}}
 \newcommand*{\eauthor}[1]{\gdef\@eauthor{#1}}
-\newcommand*{\eabstract}[1]{\long\def\@eabstract{#1}}
+\renewenvironment{abstract}%
+  {\global\setbox\@abstractbox\hbox\bgroup
+   \begin{minipage}[b]{157mm}{\centerline{\textbf{Abstract}}\par}
+   \parindent6mm}
+  {\end{minipage}\egroup}
 \newcommand*{\keywords}[1]{\gdef\@keywords{#1}}
 
-\renewcommand{\maketitlehooka}{
-　　\setcounter{footnote}{1}% 所属に用いるthanksの番号を1から開始します
-}
+% \maketitleを再定義します  
+\renewcommand{\maketitle}{\par
+  \begingroup
+    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+    \setcounter{footnote}{1}%　footnote番号を1から開始します
+    \long\def\@makefntext##1{\advance\leftskip 3zw
+      \parindent 1zw\noindent
+      \llap{\@textsuperscript{\normalfont\@thefnmark}\hskip0.3zw}##1}%
+      \twocolumn[\@maketitle]%
+    \plainifnotempty
+    \@thanks
+  \endgroup
+  \setcounter{footnote}{0}%　footnote番号を初期化します
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\and\relax}
 
-\renewcommand{\maketitlehookd}{
+% 標題全体を出力します
+\def\@maketitle{%
+  \newpage\null
   \begin{center}
+    \let\footnote\thanks
+    % 和文標題
+    \ifx\@title\@undefined\else
+      {\LARGE \@title \par}
+      \vskip 1em
+    \fi
+    % 和文著者名
+    \ifx\@author\@undefined\else
+      \begin{tabular}[t]{c}
+        \@author
+      \end{tabular}\par
+      \vskip 1.5em
+    \fi
     % 英文標題
-    {\Large\bf \@etitle \par}
-    \vskip 1.5em
+    \ifx\@etitle\@undefined\else
+      {\Large \@etitle \par}
+      \vskip 1em
+    \fi
     % 英文著者名
-    {\large\bf \@eauthor \par}
-    \vskip 2em
-    % 英文概要
-    {\large\bf Abstract}
-  \end{center}%
-  {\normalsize \@eabstract \par}
-  \vskip 1em
-  {\normalsize {\bf Keywords:} \@keywords \par}
-  \vskip 1zw
-}
+    \ifx\@eauthor\@undefined\else
+      \begin{tabular}[t]{c}
+        \@eauthor
+      \end{tabular}\par
+      \vskip 1em
+    \fi
+  \end{center}
+  \vskip 1.5em
+  \centerline{\box\@abstractbox}
+  \ifx\@keywords\@undefined\else
+    \vskip 1.5em
+    \centerline{\parbox{157mm}{\textbf{Keywords:} \small\@keywords}}
+  \fi
+  \vskip 1.5em}
 
-\setlength{\thanksmarkwidth}{1zw}
-\setlength{\thanksmargin}{0zw}
-
+% 受付日を出力するための命令定義です
 \newcommand*{\receivedon}[1]{\gdef\@receivedon{#1}}
 \newcommand*{\makereceivedon}{
-  \footnotetext{\hspace{-16pt} Received on \@receivedon.}
+  \footnotetext{Received on \@receivedon.}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 参考文献
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\refname}{\centering \normalsize \bf 参考文献}
-
+\renewcommand{\refname}{\centering \large \textbf{参考文献}}
