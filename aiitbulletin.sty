@@ -13,6 +13,7 @@
 \usepackage[inner=2.4cm, outer=2.0cm, top=3.0cm, bottom=2.0cm,
   columnsep=2zw, includefoot, dvipdfm]{geometry} % 頁サイズの設定用
 \usepackage{mediabb} % PDF画像サイズ取得用
+\usepackage{newcent}\normalfont % New Century（Word互換）を使用
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% タイトルの定義
@@ -21,17 +22,18 @@
 % 英文表題を登録するための命令を定義します
 \newcommand*{\etitle}[1]{\gdef\@etitle{#1}}
 \newcommand*{\eauthor}[1]{\gdef\@eauthor{#1}}
-\renewenvironment{abstract}%
+\renewenvironment{abstract}
   {\global\setbox\@abstractbox\hbox\bgroup
-   \begin{minipage}[b]{\abstractwidth}{\centerline{\textbf{Abstract}}\par}
-   ％\parindent6mm
-   }
+   \begin{minipage}[b]
+     {\abstractwidth}
+     {\centerline{\large Abstract}\par}}
   {\end{minipage}\egroup}
 \newcommand*{\keywords}[1]{\gdef\@keywords{#1}}
 
 % 概要とキーワードの横幅を指定します
 \newlength{\abstractwidth}
-\setlength{\abstractwidth}{0.8\textwidth}
+%\setlength{\abstractwidth}{0.8\textwidth}
+\setlength{\abstractwidth}{\textwidth}
 
 % \maketitleを再定義します  
 \renewcommand{\maketitle}{\par
@@ -61,39 +63,35 @@
   \begin{center}
     \let\footnote\thanks
     % 和文標題
+    \vspace{0.5cm}
     \ifx\@title\@undefined\else
       {\LARGE \@title \par}
-      \vskip 1em
+      \vspace{.6cm}
     \fi
     % 和文著者名
     \ifx\@author\@undefined\else
-      \begin{tabular}[t]{c}
-        \@author
-      \end{tabular}\par
-      \vskip 1.5em
+      {\large \@author \par}
+      \vspace{.6cm}
     \fi
     % 英文標題
     \ifx\@etitle\@undefined\else
-      {\Large \textbf{\@etitle} \par}
-      \vskip 1em
+      {\Large \@etitle \par}
+      \vspace{.4cm}
     \fi
     % 英文著者名
     \ifx\@eauthor\@undefined\else
-      \begin{tabular}[t]{c}
-        \textbf{\@eauthor}
-      \end{tabular}\par
-      \vskip 1.5em
+      {\large \@eauthor}
+      \vspace{.4cm}
     \fi
   \end{center}
   % 英文概要
-  \vskip 1.0em
   \centerline{\box\@abstractbox}
-  \vskip 1.0em
+  \vspace{.3cm}
   % 英文キーワード
   \ifx\@keywords\@undefined\else
-    \centerline{\parbox{\abstractwidth}{\textbf{Keywords:} \small\@keywords}}
+    \centerline{\parbox{\abstractwidth}{Keywords: \@keywords}}
   \fi
-  \vskip 2.0em}
+  \vspace{.5cm}}
 
 % 受付日を出力するための命令定義です
 \newcommand*{\receivedon}[1]{\gdef\@receivedon{#1}}
