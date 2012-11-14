@@ -33,8 +33,7 @@
 
 % 概要とキーワードの横幅を指定します
 \newlength{\abstractwidth}
-%\setlength{\abstractwidth}{0.8\textwidth}
-\setlength{\abstractwidth}{\textwidth}
+\setlength{\abstractwidth}{\textwidth}%\setlength{\abstractwidth}{0.8\textwidth}
 
 % \maketitleを再定義します  
 \renewcommand{\maketitle}{\par
@@ -99,27 +98,6 @@
 \newcommand*{\makereceivedon}{
   \footnotetext{\hspace{-4.5ex} Received on \@receivedon.}
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% セクションの書式
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\thesection}{\arabic{section}.}
-\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
-\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 図のキャプションの書式
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\long\def\@makecaption#1#2{%
-  \small%% add this line
-  \vskip\abovecaptionskip
-  \sbox\@tempboxa{#1: #2}%
-  \ifdim \wd\@tempboxa >\hsize
-    #1: #2\par
-  \else
-    \global \@minipagefalse
-    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-  \fi
-  \vskip\belowcaptionskip}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 参考文献
