@@ -13,7 +13,7 @@
 \usepackage[inner=24truemm, outer=20truemm, top=30truemm, bottom=20truemm,
   columnsep=2zw, dvipdfm]{geometry} % 頁サイズの設定用（本文9ptのためtruecmで指定する）
 \usepackage{mediabb} % PDF画像サイズ取得用
-\usepackage{newcent}\normalfont % New Century（Word互換）を使用
+%\usepackage{newcent}\normalfont % New Century（Word互換）を使用
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% タイトルの定義
@@ -26,7 +26,8 @@
   {\global\setbox\@abstractbox\hbox\bgroup
    \begin{minipage}[b]
      {\abstractwidth}
-     {\centerline{\large Abstract}\par}}
+     {\centerline{\large \textbf{Abstract}}\par} % 概要標題（Abstract）
+     \vspace{\baselineskip}}
   {\end{minipage}\egroup}
 \newcommand*{\keywords}[1]{\gdef\@keywords{#1}}
 
@@ -63,40 +64,40 @@
   \begin{center}
     \let\footnote\thanks
     % 和文標題
-    \vspace{0.5cm}
     \ifx\@title\@undefined\else
       {\LARGE \@title \par}
-      \vspace{.6cm}
+      \vspace{\baselineskip}
     \fi
     % 和文著者名
     \ifx\@author\@undefined\else
-      {\large \@author \par}
-      \vspace{.6cm}
+      {\Large \@author \par}
+      \vspace{\baselineskip}
     \fi
     % 英文標題
     \ifx\@etitle\@undefined\else
       {\Large \@etitle \par}
-      \vspace{.4cm}
+      \vspace{\baselineskip}
     \fi
     % 英文著者名
     \ifx\@eauthor\@undefined\else
       {\large \@eauthor}
-      \vspace{.4cm}
+      \vspace{\baselineskip}
     \fi
   \end{center}
   % 英文概要
   \centerline{\box\@abstractbox}
-  \vspace{.3cm}
+  \vspace{\baselineskip}
   % 英文キーワード
   \ifx\@keywords\@undefined\else
-    \centerline{\parbox{\abstractwidth}{Keywords: \@keywords}}
+    \centerline{\parbox{\abstractwidth}{\textbf{Keywords:} \@keywords}}
   \fi
-  \vspace{.5cm}}
+  \vspace{\baselineskip}
+  }
 
 % 受付日を出力するための命令定義です
 \newcommand*{\receivedon}[1]{\gdef\@receivedon{#1}}
 \newcommand*{\makereceivedon}{
-  \footnotetext{Received on \@receivedon.}
+  \footnotetext{\hspace{-4.5ex} Received on \@receivedon.}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% セクションの書式
