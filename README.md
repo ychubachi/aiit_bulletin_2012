@@ -9,6 +9,7 @@ aiit_bulletin_2012
   - \sectionのフォントがサンセリフ体になり、配置も2行の中央に配置され美しい
   - \sectionの番号はjsarticleのデフォルト（ピリオドなし）のままです
   - \captionの番号はjsarticleのデフォルト（コロンなし）のままです
+  - 参考文献の標題はjsarticleのデフォルト（センタリングなし）のままです
 - aiitbulletinスタイルでやっていること
   - geometryパッケージを用いてマージンなどを設定
   - \maketitleのオーバーライドなど
