@@ -9,8 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% パッケージ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[dvipdfm]{graphicx} % 図の取り込み(PDF対応)用
-\usepackage{mediabb} % PDF画像サイズ取得用
+\usepackage[dvipdfmx]{graphicx} % 図の取り込み(PDF対応)用
 \usepackage[inner=24truemm, outer=20truemm, top=30truemm, bottom=20truemm,
   columnsep=2zw, dvipdfm]{geometry} % 頁サイズの設定用（本文9ptのためtruecmで指定する）
 %\usepackage{newcent}\normalfont % New Century（Word互換）を使用する場合コメントを外してください
@@ -22,13 +21,13 @@
 % 英文表題を登録するための命令を定義します
 \newcommand*{\etitle}[1]{\gdef\@etitle{#1}}
 \newcommand*{\eauthor}[1]{\gdef\@eauthor{#1}}
-\renewenvironment{abstract}
-  {\global\setbox\@abstractbox\hbox\bgroup
-   \begin{minipage}[b]
-     {\abstractwidth}
-     {\centerline{\large \textbf{Abstract}}\par} % 概要標題（Abstract）
-     \vspace{\baselineskip}}
-  {\end{minipage}\egroup}
+% \renewenvironment{abstract}
+%   {\global\setbox\@abstractbox\hbox\bgroup
+%    \begin{minipage}[b]
+%      {\abstractwidth}
+%      {\centerline{\large \textbf{Abstract}}\par} % 概要標題（Abstract）
+%      \vspace{\baselineskip}}
+%   {\end{minipage}\egroup}
 \newcommand*{\keywords}[1]{\gdef\@keywords{#1}}
 
 % 概要とキーワードの横幅を指定します

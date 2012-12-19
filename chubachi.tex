@@ -1,6 +1,7 @@
-\documentclass[a4j,9pt,twocolumn,twoside]{jsarticle}
-% AIIT紀要スタイルの読み込み(PDF画像取り込み対応)
-\usepackage{aiitbulletin}
+%#BIBTEX pbibtex chubachi
+\documentclass[a4j,9pt,twoside]{jarticle}
+\usepackage{kiyou}
+\usepackage[dvipdfmx]{graphicx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% オプション
@@ -22,40 +23,66 @@
 \newcommand{\me}{中鉢 欣秀}
 \newcommand{\meen}{Y.~Chubachi}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 標題
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{PBLにおける協創型ソフトウェア開発モデルへのアプローチ}
-\author{中 鉢 欣 秀$^{*}$}
-\etitle{An Approarch to Co-creative Software Development Model in PBL}
-\eauthor{Yoshihide Chubachi$^{*}$}
-\begin{abstract}
-In this paper, a novel software engineer education method for Project-Based
-Learning is proposed.  Recently, industrial business models in information
-technology are changing rapidly.  In Japan, so-called ``User vs. Vendor model'' is
-quiet common for Japanese traditional IT companies.
-On the other hand, there
-are a lot of companies who develop their software service through the dialogue
-with their customer directory.  Such novel model shall be called ``Co-Creative
-Software Development: CcSD'' model which derived from marketing field research. 
-We propose a new PBL for educating the new engineers who can adapt to CcSD
-model.
-\end{abstract}
-\keywords{Co-creation, Software Development, PBL}
-\receivedon{September 25, 2012} % 送付日
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 以下の4行は編集しないでください（標題・送付日等を印字するための命令を含みます）
 \begin{document}
 \pagestyle{empty}
-\maketitle
-\makereceivedon
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% 著者の所属を記入してください
-\footnotetext{\hspace{-4.5ex}% 著者所属 1
-$^{*}$ 産業技術研究科, School of Industrial Technology, AIIT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 和文標題・英文標題・アブストラクト・キーワード
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\fontsize{17pt}{17pt}\selectfont
+%% 論文標題
+  PBLにおける協創型ソフトウェア開発モデルへのアプローチ
+\vskip\baselineskip
+\fontsize{12pt}{12pt}\selectfont
+%% 和文著者名
+  中 鉢 欣 秀$^{*}$
+\vskip\baselineskip
+\fontsize{14.5pt}{14.5pt}\selectfont
+%% 論文英語タイトル
+  An Approarch to Co-creative Software Development Model in PBL
+\vskip\baselineskip
+\fontsize{12pt}{12pt}\selectfont
+%% 英文著者名
+  Yoshihide Chubachi$^{*}$
+\vskip\baselineskip
+\fontsize{10pt}{10pt}\selectfont
+  Abstract
+\end{center}
+\fontsize{10pt}{10pt}\selectfont\noindent
+%% アブストラクト
+  A novel software engineer education method for Project-Based
+  Learning is proposed in this paper.  Recently, industrial business
+  models in information technology are changing rapidly.  In Japan,
+  so-called ``User vs. Vendor model'' is quiet common for Japanese
+  traditional IT companies. On the other hand, there are a lot of
+  companies who develop their software service through the dialogue
+  with their customer directory.  Such novel model shall be called
+  ``Co-Creative Software Development: CcSD'' model which derived from
+  marketing field research. We propose a new PBL for educating the new
+  engineers who can adapt to CcSD model.  \vskip\baselineskip
+  \fontsize{10pt}{10pt}\selectfont\noindent
+%% キーワード
+  Keywords: Co-creation, Software Development, PBL
+\vskip\baselineskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 送付日・著者所属
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnotetext{\hspace{-4.5ex}
+%% 送付日
+Received on September 30, 2012.
 }
+\footnotetext{\hspace{-4.5ex}
+%% 著者所属 1
+$^{*}$ 産業技術大学院大学，産業技術研究科, School of Industrial Technology, AIIT
+}
+
+\renewcommand{\thefootnote}{*\arabic{footnote}}
+\setcounter{footnote}{0}
+\begin{multicols}{2} % 2段組の開始
+\small % 本文を9ptにする
 
 %% ここから本文です
 \section{はじめに}
@@ -75,7 +102,6 @@ $^{*}$ 産業技術研究科, School of Industrial Technology, AIIT
 	\cite{pub:chubachi-global-2010}\cite{pub:nishino-2010}%
 	の成果を踏まえ，
 	次世代型のソフトウェア開発者育成法として普及を図る．
-	%###
 	
 	以下,
 	\ref{sec:purpose}で研究の目的について述べ，
@@ -85,21 +111,21 @@ $^{*}$ 産業技術研究科, School of Industrial Technology, AIIT
 \section{研究の目的}\label{sec:purpose}
 \subsection{コ・クリエイティブなソフトウェア開発}
 
-	%###
-    コ・クリエイション（Co-creation）
-    とは，マーケティング分野の用語であり，
-    商品やサービスの開発にあたり企業が顧客を巻き込むことでよりよいものを創りだすことを指す．
+    コ・クリエイション（Co-creation）とは，マーケティング分野の用語であ
+    り，商品やサービスの開発にあたり企業が顧客を巻き込むことでよりよい
+    ものを創りだすことを指す．
     
-    コ・クリエイションの最近の事例としては，Starbucks，Dellなどが顧客のアイディア
-    をソーシャルメディアにより収集し，
-    自社のサービス改善につなげていることが報告されている~\cite{wired}．
+    コ・クリエイションの最近の事例としては，Starbucks，Dellなどが顧客の
+    アイディアをソーシャルメディアにより収集し，自社のサービス改善につ
+    なげていることが報告されている~\cite{wired}．
 
-    一方で，ソフトウェア開発においては，Linuxを代表とするオープンソース型の
-    ソフトウェア（OSS）開発のスタイルに見られるように，利用者と開発者が一体となって
-    ソフトウェア・プロダクトを開発事例が数多く存在する．OSSの開発では利用者と開発者とが協創
-    \footnote{コ・クリエイションは「共創」と訳されることが多いが，本研究では「協創」と表記する．}
-    的に
-    振る舞うことが，価値あるソフトウェアを生み出すための原動力となっている~\cite{oss}．
+    一方で，ソフトウェア開発においては，Linuxを代表とするオープンソース
+    型のソフトウェア（OSS）開発のスタイルに見られるように，利用者と開発
+    者が一体となってソフトウェア・プロダクトを開発事例が数多く存在する．
+    OSSの開発では利用者と開発者とが協創\footnote{コ・クリエイションは
+    「共創」と訳されることが多いが，本研究では「協創」と表記する．}的に
+    振る舞うことが，価値あるソフトウェアを生み出すための原動力となって
+    いる~\cite{oss}．
     
     これらを踏まえ，本研究ではマーケティング分野の概念であるコ・クリエイションをソフトウェア開発領域に適用した
     新しいソフトウェア開発プロセスを定義し，PBLで学習できるようにする．
@@ -116,94 +142,105 @@ $^{*}$ 産業技術研究科, School of Industrial Technology, AIIT
     両者のコンフリクトをマネジメントすることがソフトウェア開発チームに求められ，
     コ・クリエイティブにソフトウェアを開発することが非常に難しい．
     
-    図\ref{fig:user_vendor_model}は，従来のソフトウェア開発における
-    ユーザ企業とベンダ企業との関係構造を模式化したものである．
-    本来，ベンダ企業にとっては実際にソフトウェアを利用するエンドユーザに有益なプロダクトを製造する
-    ことが最大のミッションであるはずだ．
-    ところが，エンドユーザとベンダ企業の開発部門やアウトソース先企業との間には
-    図に示した通り，幾重にも壁が存在している．このため，
-    エンドユーザが求めるソフトウェアを正しく製造することは構造的に困難である．
-    
-\begin{figure}
+    図\ref{fig:user_vendor_model}は，従来のソフトウェア開発におけるユー
+    ザ企業とベンダ企業との関係構造を模式化したものである．本来，ベンダ
+    企業にとっては実際にソフトウェアを利用するエンドユーザに有益なプロ
+    ダクトを製造することが最大のミッションであるはずだ．ところが，エン
+    ドユーザとベンダ企業の開発部門やアウトソース先企業との間には図に示
+    した通り，幾重にも壁が存在している．このため，エンドユーザが求
+%\begin{figure}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{figs/user_vendor_model.pdf}
-\caption{ユーザ企業とベンダ企業の構造}
+\figcaption{ユーザ企業とベンダ企業の構造}
 \label{fig:user_vendor_model}
 \end{center}
-\end{figure}
-
-    一番上に示した「エンドユーザ」とは，実際にソフトウェアを利用するユーザ（個人）である．エンドユーザは「ユーザ企業」に所属し，
-    企業が提供するサービスを実現するために情報システムを利用する．近年は，B2C型でサービスを提供する企業が増えたことから，
-    エンドユーザはユーザ企業の外部に存在し，Web等でユーザ企業が提供するサービスを利用する場合も見られる．
+%\end{figure}
+    める
+    ソフトウェアを正しく製造することは構造的に困難である．
     
-    このようなソフトウェア開発を行う場合，一般的にユーザ企業にある「情報システム部門」がシステム開発を主導することになる．
-    情報システム部門は複数の「ベンダ企業」に対してRFP（Request For Proposal）を提示し，これを受けてベンダが作成した
-    提案を精査し，ソフトウェア開発を発注するベンダ企業を選定する．この一連のプロセスはベンダ企業の「営業部門」が担当する．
+    一番上に示した「エンドユーザ」とは，実際にソフトウェアを利用するユー
+    ザ（個人）である．エンドユーザは「ユーザ企業」に所属し，企業が提供
+    するサービスを実現するために情報システムを利用する．近年は，B2C型で
+    サービスを提供する企業が増えたことから，エンドユーザはユーザ企業の
+    外部に存在し，Web等でユーザ企業が提供するサービスを利用する場合も見
+    られる．
     
-    営業部門が契約を取り付けた後，ベンダ企業の「開発部門」が実際のソフトウェア開発プロジェクトを開始することになる．
-    このとき，ベンダ企業内で必要なリソースが調達できない場合，ベンダ企業は社外の企業等に対して「アウトソース」を行う．
-    いわゆる下請けの関係であり，近年は人件費の安い海外にアウトソースすることも多い．
+    このようなソフトウェア開発を行う場合，一般的にユーザ企業にある「情
+    報システム部門」がシステム開発を主導することになる．情報システム部
+    門は複数の「ベンダ企業」に対してRFP（Request For Proposal）を提示し，
+    これを受けてベンダが作成した提案を精査し，ソフトウェア開発を発注す
+    るベンダ企業を選定する．この一連のプロセスはベンダ企業の「営業部門」
+    が担当する．
+    
+    営業部門が契約を取り付けた後，ベンダ企業の「開発部門」が実際のソフ
+    トウェア開発プロジェクトを開始することになる．このとき，ベンダ企業
+    内で必要なリソースが調達できない場合，ベンダ企業は社外の企業等に対
+    して「アウトソース」を行う．いわゆる下請けの関係であり，近年は人件
+    費の安い海外にアウトソースすることも多い．
     
     \subsection{IT産業の構造変化}
 
-    翻って世界に目を向けると，以上述べてきたユーザ企業とベンダ企業が対立する構造に依らない，
-    新しいタイプのソフトウェア開発企業が登場してきている．例えば，
-    GoogleやFacebookなどの有力な企業は，自らの顧客であるユーザとインターネットを通じて
-    直接的にコミュニケーションをしながら，
-    自社のプロダクトをグローバルに提供することでビジネス的な成功を収めている．
+    翻って世界に目を向けると，以上述べてきたユーザ企業とベンダ企業が対
+    立する構造に依らない，新しいタイプのソフトウェア開発企業が登場して
+    きている．例えば，GoogleやFacebookなどの有力な企業は，自らの顧客で
+    あるユーザとインターネットを通じて直接的にコミュニケーションをしな
+    がら，自社のプロダクトをグローバルに提供することでビジネス的な成功
+    を収めている．
     
-    更に，App StoreやGoogle Playといったスマートフォン向けアプリの
-    マーケットが登場しており，個人であっても直接ソフトウェアプロダクトをマーケットに投入すること容易になってきた．
+    更に，App StoreやGoogle Playといったスマートフォン向けアプリのマー
+    ケットが登場しており，個人であっても直接ソフトウェアプロダクトをマー
+    ケットに投入すること容易になってきた．
     
 	\subsection{次世代のソフトウェア開発者チームの育成}
 
-    ここまでの分析から，今後は従来型の「ユーザ・ベンダ型モデル」は急速に存在感を失い，新しいタイプの企業が成長してくるものと予測する．
-    本研究者はその際の中核概念が「コ・クリエイション」であると考える．
-    
-    すなわち，
-    適時的にプロダクトをマーケットへ投入することで得られるマーケットからの``フィード・バック''や，
-    将来的なマーケットの動向を予測して前もって製品に反映させる``フィード・フォワード''
-    など，マーケットとの対話を通してプロダクトを生み出しうるソフトウェア企業が求められる．
-    これは，マーケットとのコ・クリエーションのプロセスであり，
-    その構造は図\ref{fig:CcSD}で示される．
-    図\ref{fig:user_vendor_model}で示したモデルと比較すると，
-    開発チームが直接マーケットとの対話を行う点で大きく異る．
-    加えて，今後はグローバルなマーケットに対してのプロダクト開発も視野にいれておく必要があり，
-    このような環境で迅速にソフトウェア開発ができる能力を備えた人材育成が望まれる．
-    
-\begin{figure}
+    ここまでの分析から，今後は従来型の「ユーザ・ベンダ型モデル」は急速
+    に存在感を失い，新しいタイプの企業が
+%\begin{figure}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{figs/CcSD.pdf}
-\caption{コ・クリエイティブなソフトウェア開発チームの振る舞い}\label{fig:CcSD}
+\figcaption{コ・クリエイティブなソフトウェア開発チームの振る舞い}\label{fig:CcSD}
 \end{center}
-\end{figure}
+%\end{figure}
+    成長してくるものと予測する．
+    本研究者はその際の中核概念が「コ・クリエイション」であると考える．
     
-    %###
-    そこで，本研究ではこの
-    「コ・クリエイティブ型ソフトウェア開発」に対応できる知識や技術を持った人材を育成するための
-    新しい教材と教授法について研究開発することを目的とする．
-    近年，ソフトウェアの開発プロセスを教育するためのメソッドとして，
-    PBLが効果を上げている\cite{pub:matsuzawa-2008}．
-    %###
+    すなわち，適時的にプロダクトをマーケットへ投入することで得られるマー
+    ケットからの``フィード・バック''や，将来的なマーケットの動向を予測
+    して前もって製品に反映させる``フィード・フォワード''など，マーケッ
+    トとの対話を通してプロダクトを生み出しうるソフトウェア企業が求めら
+    れる．これは，マーケットとのコ・クリエーションのプロセスであり，そ
+    の構造は図\ref{fig:CcSD}で示される．図\ref{fig:user_vendor_model}で
+    示したモデルと比較すると，開発チームが直接マーケットとの対話を行う
+    点で大きく異る．加えて，今後はグローバルなマーケットに対してのプロ
+    ダクト開発も視野にいれておく必要があり，このような環境で迅速にソフ
+    トウェア開発ができる能力を備えた人材育成が望まれる．
     
+    そこで，本研究ではこの「コ・クリエイティブ型ソフトウェア開発」に対
+    応できる知識や技術を持った人材を育成するための新しい教材と教授法に
+    ついて研究開発することを目的とする．近年，ソフトウェアの開発プロセ
+    スを教育するためのメソッドとして，PBLが効果を上げている
+    \cite{pub:matsuzawa-2008}．
 
 \begin{figure*}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{figs/scrum.pdf}
-\caption{Scrumの全体像（吉羽氏資料より）}
+\caption{Scrumの全体像（吉羽氏資料より引用）}
 \label{fig:scrum}
 \end{center}
 \end{figure*}
 
-    ただし，既存のPBLではユーザ・ベンダ型の構造を前提とした上で，プロジェクトの中で
-    それぞれのロールを体験することによる教育効果を狙ったものが多い．
-    これでは産業構造の変化を踏まえた次世代の開発者を育成する内容として不十分である．
-    特に，グローバルなマーケットとのコ・クリエイティブな対話のプロセスや，そのベースとなる迅速なソフトウェア開発のための
-    チームとしてのアジャイル性を獲得する方法の体得を柱に再構成する必要があろう．
+    ただし，既存のPBLではユーザ・ベンダ型の構造を前提とした上で，プロジェ
+    クトの中でそれぞれのロールを体験することによる教育効果を狙ったもの
+    が多い．これでは産業構造の変化を踏まえた次世代の開発者を育成する内
+    容として不十分である．特に，グローバルなマーケットとのコ・クリエイ
+    ティブな対話のプロセスや，そのベースとなる迅速なソフトウェア開発の
+    ためのチームとしてのアジャイル性を獲得する方法の体得を柱に再構成す
+    る必要があろう．
     
-    以上の背景を踏まえ，次世代のソフトウェア開発者を育成するための
-    「コ・クリエイティブなソフトウェア開発者を育成するPBL型教育」の手法を確立し，必要な教材やWebサービスとともにパッケージ化し，
-    様々な教育機関における教育に提供できる成果を得ることを本研究の目的とする．
+    以上の背景を踏まえ，次世代のソフトウェア開発者を育成するための「コ・
+    クリエイティブなソフトウェア開発者を育成するPBL型教育」の手法を確立
+    し，必要な教材やWebサービスとともにパッケージ化し，様々な教育機関に
+    おける教育に提供できる成果を得ることを本研究の目的とする．
 
 \section{研究の目標}\label{sec:method}
 \subsection{PBLによるScrumの学習}
@@ -317,4 +354,6 @@ $^{*}$ 産業技術研究科, School of Industrial Technology, AIIT
 % 		\bibitem 荒木 恵, \underline{松澤 芳昭}，杉浦 学，大岩 元： プログラミング教育への導入のための情報システム概念に基づくアンプラグドワークショップ，情報教育シンポジウム(SSS2006)，pp.163-170, 2008（査読有）
 		\bibitem{pub:matsuzawa-2008} 松澤 芳昭，杉浦 学，大岩 元： 産学協同のPBLにおける顧客と開発者の協創環境の構築と人材育成効果, 情報処理学会論文誌,  Vol.49, No.2, pp.944-957, 2008
 	\end{thebibliography}
+\newpage
+\end{multicols}
 \end{document}

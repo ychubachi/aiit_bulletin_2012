@@ -1,0 +1,71 @@
+%%% 2012-11-19改定（中鉢）
+%%% - 図表キャプションのコロンを削除
+%%% - 不要なヘッダに関する設定を削除(fancyhdrに関するもの)
+%%% - タイトルの行間を\baselineskipに統一
+%%% - jarticleは9ptオプションが使えないので削除
+%%% - フォントに関するWarningを抑制しました 
+
+\usepackage{multicol}
+\usepackage{newcent}
+\normalfont
+
+% 図表キャプションの書式を設定します
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+
+% 図表標題の書式を設定します（コロンをつけないように書式を変更）
+\long\def\@makecaption#1#2{%
+  \small%% add this line
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1 \hspace{0.5zw} #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1 \hspace{0.5zw} #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+% セクションの書式を設定します
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+   {1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+   {.3\Cvs \@plus.3\Cvs}%
+   {\reset@font\normalsize\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+   {1\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+   {.01\Cvs \@plus.01\Cvs}%
+   {\reset@font\small\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+   {1\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+   {.01\Cvs \@plus.01\Cvs}%
+   {\reset@font\small\bfseries}}
+% セクション標題の書式を設定します（ピリオドを出力するように書式設定）
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
+
+% 用紙のサイズを設定します（上30mm，下20mm，内側24mm，外側20mm）
+\setlength{\topmargin}{30mm}		%上マージン　30mm
+\addtolength{\topmargin}{-1in}		% 標準のマージン(1inch)を引く
+\setlength{\textheight}{247mm}		%本文の長さ　(縦) 297-(30+20)= 247
+\setlength{\oddsidemargin}{24mm}	% 奇数ページ　左マージン　24mm
+\addtolength{\oddsidemargin}{-1in}	% 奇数ページ　標準のマージン(1inch)を引く
+\setlength{\evensidemargin}{20mm}	% 偶数ページ　左マージン　20mm
+\addtolength{\evensidemargin}{-1in}	% 偶数ページ　標準のマージン(1inch)を引く
+\setlength{\textwidth}{166mm}		% 本文の長さ(横) 210 -(24+20) = 166
+
+\setlength{\headheight}{0mm}
+\setlength{\headsep}{0mm}
+
+% 行間を広げます（1.2倍）
+\renewcommand{\baselinestretch}{1.2}
+
+% 本文下と脚注との間隔を設定します
+\setlength{\skip\footins}{\baselineskip}
+
+% フォントに関するWarningを抑制します
+\DeclareFontShape{JY1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*min
+    <10.95><12><14.4><17.28><20.74><24.88> min10 <-> min10}{}
+\DeclareFontShape{JT1}{mc}{m}{it}{<5> <6> <7> <8> <9> <10> sgen*tmin
+    <10.95><12><14.4><17.28><20.74><24.88> tmin10 <-> tmin10}{}
+
